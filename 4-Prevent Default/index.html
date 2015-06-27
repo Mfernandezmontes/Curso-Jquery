@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $("a").on("click", function(e){
+                e.preventDefault();
+                alert("has pulsado en el enlace");
+            })
+
+            $("form").on("submit",function(e){
+                e.preventDefault();
+                alert("has Enviado el formulario");
+            })
+
+        });
+    </script>
+</head>
+<body>
+   <a href="http://goole.es">Enalce goole</a>
+
+   <form action="login.html" >
+       <input type="text" name="nombre"><br>
+       <input type="password" name="pass">
+       <input type="submit" value="Enviar">
+   </form>
+
+
+</body>
+</html>

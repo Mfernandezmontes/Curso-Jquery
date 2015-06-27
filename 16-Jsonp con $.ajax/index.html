@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $.ajaxSetup({
+                url:"data.php",
+                data:{
+                    "nombre":"curso"
+                },
+                dataType:"jsonp",
+                type:"GET"
+            });
+
+            $("#ajaxjsonp").on("click",function(){
+
+            $.ajax({
+                jsonp:"callbackvar",
+                error: function(xhr,status,error){
+                    alert("error");
+                },
+                success: function(data){
+                    $("#container").html(data.message);
+                }
+            })
+
+            });
+
+        });
+    </script>
+</head>
+<body>
+    <button id="ajaxjsonp">Jsonp</button>
+    <div id="container"></div>
+</body>
+</html>

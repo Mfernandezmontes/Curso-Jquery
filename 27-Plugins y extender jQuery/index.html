@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src="plugintexarea.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $.fn.extend({
+/*                email: function(email){
+
+                    var regex = ^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$;
+                    return regex.test(email);
+                },*/
+
+                //checkea checkbox que el pasemos
+                check: function(){
+                    return this.each(function(){
+                        this.checked = true;
+                    })
+                },
+                uncheck: function(){
+                    return this.each(function(){
+                        this.checked = false;
+                    })
+                }
+            })
+
+            $("#check").on("click", function(){
+                $("input[type=checkbox]").check()
+            });
+
+            $("#uncheck").on("click", function(){
+                $("input[type=checkbox]").uncheck()
+            })
+
+
+           // console.log($.fn.email("mfernandezmonte@gmail.com"));
+
+            $("textarea").textarea({
+                "num": 16,
+                "radius": "10px",
+                "foreground": "#333",
+                "color" : "#fff",
+                "paste" : "false",
+                "cols" : 50,
+                "rows": 10
+            })
+
+        });
+    </script>
+<body>
+    <button id="check">check</button>
+    <button id="uncheck">check</button>
+
+    <label><input type="checkbox" name="uno">uno</label>
+    <label><input type="checkbox" name="dos">dos</label>
+    <label><input type="checkbox" name="tres">tres</label>
+    <label><input type="checkbox" name="cuatro">cuatro</label>
+
+    <br><br>
+    <textarea></textarea>
+
+</body>
+</html>

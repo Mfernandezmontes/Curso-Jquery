@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="application/javascript">
+        $(document).ready(function(){
+
+            $("#ajax").on("click", function(){
+
+                var dataType = $("select option:selected").text();
+                var bgcolor =  $("select option:selected").val();
+
+                $.ajax({
+                    url : "data.php",
+                    type: "GET",
+                    dataType: dataType,
+                    context : $("#contexto"),
+                    data: {
+                        "type":dataType,
+                        "nombre":"israel",
+                        "web":"www.byteman.tk",
+                        "edad":"29"
+
+                    },
+                    statusCode: {
+                        404: function(){
+                            alert("La pagina no ha sido encontrada");
+                        },
+                        500: function(){
+                            alert("Error interno del server");
+                        }
+                    },
+                    beforeSend: function(){
+                        //mientras se envia
+                        //$(this).html("<img src='http://preloaders.net/preloaders/712/Floating%20rays.gif'>");
+                    },
+                    success: function(data){
+                        //contexto
+                        $(this).css({"background":bgcolor,"color":"white"})
+                        console.log(data);
+                    },
+                    error: function(xhr,status,error){
+                        alert("Error: " + JSON.stringify(xhr));
+                    },
+                    complete: function(){
+
+                    }
+
+
+            })
+
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <select>
+        <option value="red">json</option>
+        <option value="blue">xml</option>
+        <option value="black">html</option>
+        <option value="yellow">script</option>
+    </select>
+    <button id="ajax">Lanzar peticion</button>
+    <div id="contexto" style="width:200px; height:400px">Contexto de la peticion</div>
+</body>
+</html>

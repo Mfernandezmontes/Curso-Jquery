@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $("#checking").on("click", function(){
+
+                $("#jquery").on("error",function(){
+
+                    $(this).hide();
+                })
+                        .attr("scr", "jquery.png");
+            });
+
+
+            $(window).on("resize", function(){
+
+                $("body").prepend("<span>Ancho: " + $(window).width() + ", Alto: " + $(window).height() + "</span><br>");
+            })
+
+            $("#target").on("scroll", function(){
+
+                $("#log").prepend("<div>Div: " + $(this).scrollTop() + "</div>");
+            })
+
+            $(window).on("scroll", function(){
+
+                $("log").prepend("<div>Scroll: " + $(this).scrollTop() + "</div>");
+            })
+
+        });
+    </script>
+<body>
+    <button id="checking">Comprueba si la imagen ha cargado</button>
+    <br>
+    <img alt="imagen jquery" id="jquery">
+    <br>
+    <div id="target" style="overflow:scroll; width: 300px; height: 200px">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus earum exercitationem neque. Aliquam asperiores debitis dolorem eaque error, inventore, magni maxime modi nisi odio similique tempore tenetur ullam voluptatem voluptatibus.
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores consequatur eligendi eveniet ex fugiat harum iusto, minus nobis ratione recusandae sapiente voluptatum! Aspernatur deserunt dolor eligendi excepturi libero soluta voluptas!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad adipisci alias aliquid amet aspernatur cum dolorum eaque eos laboriosam nulla obcaecati officiis praesentium quae, quis sint ullam unde veritatis.
+    </div>
+    <br>
+    <div id="log"></div>
+</body>
+</html>

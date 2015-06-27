@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $("#input1").on("click",function(){
+                alert("has pulsdo");
+            })
+
+            $("#input2").on("dblclick",function(){
+                alert("has pulsdo dos veces");
+            });
+
+            $("li").hover(function(){
+                $(this).append($("<span>****</span>"));
+
+            }, function(){
+                $(this).find($("span:last").remove());
+            })
+
+            $("#move").on("mousemove", function(e){
+                var msg = "evento mouse move ejecutado en ";
+                msg += "x " + e.pageX + ", y" + e.pageY;
+                $("#log").html("<div>" + msg + "</div>");
+            })
+
+            $("out").on("mouseout", function(){
+                console.log("el evento mouseout ha sido lanzado");
+            })
+
+        });
+    </script>
+</head>
+<body>
+    <input id="input1">
+    <input id="input2">
+
+    <ul>
+        <li>primer</li>
+        <li>segundo</li>
+        <li>tercero</li>
+        <li>cuarto</li>
+    </ul>
+
+    <div id="move">
+        move
+    </div>
+
+    <div id="log"></div>
+
+    <div id="out">Evento out</div>
+</body>
+</html>

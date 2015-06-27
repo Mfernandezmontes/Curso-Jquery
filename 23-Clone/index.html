@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $("#clonarlista").on("click", function(){
+
+                $(".lista:first").clone().appendTo("body");
+            })
+
+        });
+    </script>
+<body>
+<button id="clonarlista">Clonar la lista compleata</button>
+<ul class="lista">
+    <li>Elemento 1</li>
+    <li>Elemento 2</li>
+    <li>Elemento 3</li>
+    <li>Elemento 4</li>
+    <li>Elemento 5</li>
+    <li>Elemento 6</li>
+</ul>
+<br>
+</body>
+</html>

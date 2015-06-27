@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+
+
+
+        $(document).ready(function() {
+
+            $("#simpleget").on("click", function () {
+
+                $.get("data.json", function () {
+                    alert("peticion enviada");
+
+                });
+            });
+
+
+            $("#simplegetcontents").on("click", function () {
+
+                $.get("data.json", function (data) {
+                    console.log(data)
+                });
+            });
+
+            $("#simplegetcontentvars").on("click", function () {
+
+                var id = 1;
+                $.get("data.json", {id:id, otra:"otra"} , function () {
+                    console.log(data.splice(id,1));
+
+                });
+            });
+
+            $("#simplegetcontentsarray").on("click", function () {
+
+                var id = 1;
+                $.get("data.php", {"dias[]":["lunes", "martes","miercoles"]} , function (data) {
+                    var obj = JSON.parse(data);
+
+                    for(dias in obj){
+                        console.log(obj[dias]);
+                    }
+
+                });
+            });
+
+            $("#simplegetcontpromises").on("click", function(){
+
+                var request = $.get("data.json",function(data){
+                    console.log(data);
+                    alert("correcto");
+                })
+                        .done(function(data){
+                            alert("peticion enviada correctamenete")
+                        })
+                        .fail(function(error){
+                            console.log("error " + error.statusText);
+                        })
+                        .always(function(){
+                            alert("ha finalizado de cualquier forma");
+                        })
+
+            })
+
+        });
+    </script>
+</head>
+<body>
+    <button id="simpleget">simple get</button>
+    <button id="simplegetcontents">simple get contents</button>
+    <button id="simplegetcontentvars">simple get vars</button>
+    <button id="simplegetcontentsarray">simple get contents array</button>
+    <button id="simplegetcontpromises">simple get interfaz de promesas</button>
+</body>
+</html>

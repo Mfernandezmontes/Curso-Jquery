@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            var arr = [];
+
+            arr["nombre"] = "Juan";
+            arr["apellidos"] = "lopez García";
+            arr["edad"] = 40;
+            arr["ciudad"] = "barcelona";
+
+            var arr2 = [];
+
+            arr2["nombre"] = "Israel";
+            arr2["apellidos"] = "lopez";
+            arr2["edad"] = 33;
+            arr2["ciudad"] = "barcelona";
+            arr2["pais"] = "España";
+
+            $.extend(arr, arr2);
+            console.log(arr);
+
+
+           var obj = {
+               "nombre" : "juan",
+               "apellidos" : "lopez",
+               "edad" : 40,
+               "ciudad": "barcelona"
+           }
+
+            var obj2 = {
+                "nombre" : "juan",
+                "apellidos" : "lopez",
+                "edad" : 40,
+                "ciudad": "barcelona",
+                "pais": "España"
+            }
+
+            $.extend(obj, obj2);
+            console.log(obj2);
+
+
+
+
+        });
+    </script>
+<body>
+
+
+</body>
+</html>

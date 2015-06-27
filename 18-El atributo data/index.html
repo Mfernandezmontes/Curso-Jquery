@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            $("body").data("simple",53);
+            $("body").data("object", {nombre:"test", count: 40});
+            $("body").data({array: [1,2,3]});
+
+            $("#datasimple").on("click", function(){
+                console.log($("body").data("simple"))
+            })
+
+
+        });
+    </script>
+</head>
+<body>
+    <button id="datasimple">Simple data</button>
+    <button id="dataobject">Data onject</button>
+    <button id="dataarray">Data array</button>
+    <button id="removedata">Remove data</button>
+    <div id="load" data-id="1" data-name="unodepiera" data-cursor="jquery">Dic con elementos  data</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $("#load").on("click",function(){
+
+                $("#containerload").load("data.json", function(data){
+
+                })
+            })
+
+            $("#load2").on("click",function(){
+                var id = 3;
+
+                $("#containerload2").load("data.php",{id:id} ,function(data){
+
+                })
+            })
+
+
+        });
+    </script>
+</head>
+<body>
+    <button id="load">Cargar inforamación</button>
+    <div id="containerload"></div>
+    <button id="load2">Cargar informacion con $.load</button>
+    <div id="containerload2"></div>
+
+</body>
+</html>

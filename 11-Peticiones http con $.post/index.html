@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#procesar").on("click", function(){
+                $.post("data.php", {form:$("#form").serialize()}, function(data){
+                    var obj = JSON.parse(data);
+                    console.log(obj)
+                })
+            })
+
+        });
+    </script>
+</head>
+<body>
+    <button id="procesar">Procesar formulario</button>
+    <form method="POST" id="form">
+        <input class="target" name="input" type="text" value="1">
+        <select name="select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+    </form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="application/javascript">
+        $.ajaxSetup({
+            url: "data.php",
+            method: "GET",
+            dataType: "json"
+        });
+
+        $("button").on("click", function(){
+
+
+
+            $.ajax({
+                success: function(){
+                 console.log(data)
+                },
+                error: function(xhr, status, error){
+
+                }
+            })
+        })
+
+    </script>
+</head>
+<body>
+    <button>ajax</button>
+</body>
+</html>

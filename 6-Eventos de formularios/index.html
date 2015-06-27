@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $("#form").on("submit", function(){
+                e.preventDefault();
+            })
+
+            $(".target").on("change", function(){
+                alert($(".target option:selected").text()); //.val() el valor
+            })
+
+            $("p").on("focusin", function(){
+                $(this).find("span").css("display", "inline").fadeOut(1000);
+            })
+
+            $("#target").on("blur", function(){
+                alert("Se ha lanzado el evento blur");
+            })
+
+            $("#target").on("select", function(){
+                alert("Se ha lanzado el evento select");
+            })
+
+
+        });
+    </script>
+</head>
+<body>
+    <form id="form">
+        <input type="text" id="target" value="input1">
+        <input type="text" value="input2">
+        <input type="submit" value="Enviar">
+    </form>
+
+    <form>
+        <input type="text" class="target" value="input1">
+        <select class="target">
+            <option value="1" selected="selected">opcion1</option>
+            <option value="2">opcion2</option>
+            <option value="3">opcion3</option>
+        </select>
+    </form>
+
+    <p><input type="text"> <span>focusin</span></p>
+    <p><input type="password"> <span>focusin</span></p>
+</body>
+</html>

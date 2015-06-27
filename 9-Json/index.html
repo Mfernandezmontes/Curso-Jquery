@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        var arr = [
+            {
+                "id":1,
+                "text":"primero"
+            },
+            {
+                "id":2,
+                "text":"segundo"
+            },
+            {
+                "id":2,
+                "text":"tercero"
+            },
+            {
+                "id":2,
+                "text":"cuarto"
+            },
+        ]
+
+        $(document).ready(function() {
+
+            $("#pulsa").on("click",function(){
+
+                //pasar de un json a un array
+                var string = JSON.stringify(arr);
+                console.log(string);
+
+                //pasar un string a objeto
+                console.log(JSON.parse(string))
+            });
+
+
+
+        });
+    </script>
+</head>
+<body>
+    <button id="pulsa">Pulsa</button>
+</body>
+</html>

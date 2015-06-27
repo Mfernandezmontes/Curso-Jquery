@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $(".primero").on("click",function(){
+                alert($(this).text());
+            });
+
+            $("a").on("click",function(e){
+                e.preventDefault();
+                //pasame el texto del onjeto
+                alert($(this).text());
+                //sacame el atributo del onjeto
+                alert($(this).attr("href"));
+            })
+
+        });
+    </script>
+</head>
+<body>
+    <div class="primero">texto</div>
+    <a href="index.html">Enlace</a>
+
+</body>
+</html>
